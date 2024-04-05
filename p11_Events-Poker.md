@@ -41,27 +41,23 @@ y/o
 * Acreditar que es capaz de editar ficheros de forma remota en su VM usando Visual Studio Code
 
 ### Indicaciones de caracter general
-
-La aplicación que desarrolle ha de ser orientada a objetos.
+* La aplicación que desarrolle ha de ser orientada a objetos.
 Ponga en práctica en su desarrollo los fundamentos, principios y buenas prácticas de la OOP así como los
 conocimientos que haya adquirido en el uso de patrones de diseño.
 
-Configure adecuadamente ficheros `package.json` y `tsconfig.json` en el directorio raíz de su ejercicio, 
-de modo que ejecutando `npm install` queden instaladas todas las dependencias del proyecto.
+* Configure adecuadamente ficheros `package.json` y `tsconfig.json` en el directorio raíz de su proyecto que
+permitan gestionar las dependencias del mismo.
 
-Previo a la implementación de cada clase, diseñe y desarrolle un conjunto de tests para probar el correcto
+* Previo a la implementación de cada clase, diseñe y desarrolle un conjunto de tests para probar el correcto
 funcionamiento de todos los métodos públicos.
 
-Utilice un fichero distinto para el código de cada una de las clases que intervienen en su programa.
+* Utilice un fichero distinto para el código de cada una de las clases que intervienen en su programa.
 
-Encapsule las clases en módulos que exporten la correspondiete clase hacia otros programas clientes que pudieran utilizarla.
+* Encapsule las clases en módulos que exporten la correspondiete clase hacia otros programas clientes que pudieran utilizarla.
 
-Configure para la práctica una página web que sirva de índice para mostrar la documentación generada por
-Typedoc para esta práctica.
+* Todo el código estará ubicado en el directorio `src` del proyecto. Use subdirectorios de éste si le resulta conveniente.
 
-Todo el código estará ubicado en el directorio `src` del proyecto. Use subdirectorios de éste si le resulta conveniente.
-
-Antes de comenzar a desarrollar su programa dedique el tiempo necesario a diseñar la estructura de clases que
+* Antes de comenzar a desarrollar su programa dedique el tiempo necesario a diseñar la estructura de clases que
 utilizará en su programa, así como las relaciones existentes entre las mismas.
 Desarrolle un diagrama UML para esas clases, que ha de añadir a la página índice de esta práctica.
 Asegúrese de la corrección de su diagrama.
@@ -70,16 +66,18 @@ Una aplicación para la realización de diagramas UML como
 puede resultarle útil para esta finalidad, aunque puede usar cualquier otro programa que conozca, 
 o simplemente papel y bolígrafo.
 
-Realice, como siempre, un diseño incremental del programa comprobando cada una de las funcionalidades que añade, siguiendo un
+* Realice, como siempre, un diseño incremental del programa comprobando cada una de las funcionalidades que añade, siguiendo un
 desarrollo TDD.
 
 ### El juego del Poker
-En esta práctica se propone desarrollar una aplicación web `poker.ts`
+En esta práctica se propone desarrollar una aplicación web SPA 
+[(Single Page Application)](https://en.wikipedia.org/wiki/Single-page_application)
+`poker.ts`
 La aplicación se diseñará utilizando clases encapsuladas en diferentes módulos.
 
 Tendrá que representar 
-[cartas de la baraja francesa](https://en.wikipedia.org/wiki/Standard_52-card_deck), mazos de cartas, manos y jugadas del Póquer.
-Consulte
+[cartas de la baraja francesa](https://en.wikipedia.org/wiki/Standard_52-card_deck), 
+mazos de cartas, manos y jugadas del Póquer.  Consulte
 [Wikipedia](http://en.wikipedia.org/wiki/Poker), 
 para un conocimiento básico de este juego, en caso de que no lo conozca.
 Este documento explica todo lo que se precisa para la aplicación que ha de realizar.
@@ -90,7 +88,7 @@ modelar en su programa: cartas (cards), mazo de cartas (deck), etc.
 
 ### La clase *Card*
 Se propone desarrollar en el módulo `card.ts` una clase `Card` que permita representar cartas de la barja francesa.
-La baraja francesa está dividida en cuatro palos (en inglés: *suit*), dos de color rojo y dos de color negro:
+La baraja francesa está dividida en cuatro palos (en inglés: *suits*), dos de color rojo y dos de color negro:
 
 * ♠ Spades (picas).
 * ♥ Hearts (corazones).
@@ -99,21 +97,19 @@ La baraja francesa está dividida en cuatro palos (en inglés: *suit*), dos de c
 
 Cada palo está formado por 13 cartas, de las cuales 9 son numerales y 4 literales. 
 Se ordenan de menor a mayor "rango" de la siguiente forma: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K. 
-Las cartas con letras (figuras), se llaman Jack (J), Queen (Q), King (K) y Ace (A).
+Las cartas con letras (figuras), se llaman Jack (J), Queen (Q), King (K) y Ace (A, *As*).
 Dependiendo del juego, un As puede ser más alto que el Rey o más bajo que 2.
 
 Si se quiere definir una clase para representar una carta de juego, 
 es obvio cuáles deben ser los atributos mínimos imprescindibles: valor, palo y la imagen asociada con la carta.
-Cualquier implementación que se elija para los atributos ha de permitir comparar cartas para determinar cuál tiene un valor o palo más alto.
-El directorio `img` de este proyecto contiene ficheros gráficos correspondientes a todas las cartas de la
-baraja francesa.
+El directorio `img` de este proyecto contiene ficheros gráficos correspondientes a todas las cartas de la baraja francesa.
 
 Defina una clase `Card` para representar las cartas.
 Si no se especifica algo diferente, al crear un objeto de esta clase se crearía un 2 de tréboles.
 
 A efectos de depuración es posible que le resulte útil desarrollar un método `toString()` que permita imprimir en consola un objeto `Card`.
 Las cartas han de poder imprimirse de forma que sean legibles para un humano.
-Así en pantalla esperamos encontrar textos como:
+Así en pantalla se podría espera encontrar textos como:
 
 ```
 Ace of Diamonds
@@ -128,9 +124,9 @@ const jackOfHearts = new Card(HEARTS, JACK);
 console.log(jackOfHearts);  // -> Jack of Hearts
 ```
 
-También resulta necesario un mecanismo que permita comparar cartas.
+Cualquier implementación que se elija para los atributos ha de permitir comparar cartas para determinar cuál tiene un valor o palo más alto.
 El orden de las cartas no es obvio. 
-Por ejemplo, ¿qué carta es mejor, el 3 de tréboles o el 2 de diamantes?
+Por ejemplo, ¿qué carta es más alta, el 3 de tréboles o el 2 de diamantes?
 Una tiene un valor más alto, pero la otra tiene un palo más alto. 
 Para comparar las cartas, ha de decidirse si es más importante el valor de la carta o el palo.
 La respuesta puede depender del juego que se esté jugando, pero para simplificar, 
@@ -190,11 +186,11 @@ hand.addCard(card);
 console.log(hand);	// -> King of Spades
 ```
 
-Un paso adicional es disponer de un método `moveCards()` que toma dos argumentos: una mano y el número de cartas a repartir.
-`moveCards()` toma el número de cartas a repartir del mazo y las coloca en la mano.
+Un paso adicional es disponer de un método `moveCardsToHand()` que toma dos argumentos: una mano y el número de cartas a repartir.
+`moveCardsToHand()` toma el número de cartas a repartir del mazo y las coloca en la mano.
 
 En algunos juegos, las cartas se mueven de una mano a otra, o de una mano al mazo. 
-Se podría usar `moveCards()` para cualquiera de estas operaciones.
+Se podrían desarrollar métodos específicos para estas operaciones, si resultan necesarios.
 
 Escriba un método de `Deck` llamado `dealHands()` que toma dos parámetros: el número de manos y el número de cartas por mano. 
 Debe crear el número apropiado de manos, repartir el número apropiado de cartas por mano y devolver una lista de Manos.

@@ -13,7 +13,9 @@ This text is Markdown text. To learn about Markdown, Study these references:
 
 The project directory organization is as follows:
 
+```
 .
 └── src
     ├── evaluation-session
     └── home-work
+```

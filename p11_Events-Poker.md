@@ -187,7 +187,7 @@ console.log(hand);	// -> King of Spades
 ```
 
 Un paso adicional es disponer de un método `moveCardsToHand()` que toma dos argumentos: una mano y el número de cartas a repartir.
-`moveCardsToHand()` toma el número de cartas a repartir del mazo y las coloca en la mano.
+`moveCardsToHand()` toma del mazo el número de cartas a repartir y las coloca en la mano.
 
 En algunos juegos, las cartas se mueven de una mano a otra, o de una mano al mazo. 
 Se podrían desarrollar métodos específicos para estas operaciones, si resultan necesarios.
@@ -262,7 +262,7 @@ Incluya una tercera página
 que muestre el diagrama UML de las clases que intervienen en su aplicación.
 
 Utilice lo que haya aprendido de CSS para dotar de estilo propio a las páginas HTML que
-desarrolle.
+desarrolle, aunque el CSS es el aspecto de menor importancia en este ejercicio.
 
 ## Referencias
 * [Poker](http://en.wikipedia.org/wiki/Poker)

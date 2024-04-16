@@ -219,7 +219,7 @@ Por ejemplo, una mano de 5 cartas podría contener un trío y un par; debería s
 kind" (trío) puesto que esa es la jugada de mayor valor.
 
 Para comparar dos manos de cartas y determinar cuál es la ganadora, utilice las siguentes reglas:
-* Si hay un empate: la mano con la carta más alta es la ganadora.
+* Si hay un empate (p. ej. ambas manos contienen un trío como jugada más alta): la mano con la carta más alta es la ganadora (un trío de K gana a un trío de J).
 * Si resulta necesario, la segunda, tercera, cuarta y quinta carta más alta pueden romper el empate.
 * Si las cinco cartas tienen el mismo valor se usará el palo de la carta más alta para desempatar, usando la ordenación ya comentada: `Clubs < Diamonds < Hearts < Spades`
 

@@ -218,8 +218,12 @@ de mayor valor para una mano y establezca un atributo de esa mano (valor de la m
 Por ejemplo, una mano de 5 cartas podría contener un trío y un par; debería ser etiquetada como "Three of a
 kind" (trío) puesto que esa es la jugada de mayor valor.
 
-### Interfaz gráfica del programa
+Para comparar dos manos de cartas y determinar cuál es la ganadora, utilice las siguentes reglas:
+* Si hay un empate: la mano con la carta más alta es la ganadora.
+* Si resulta necesario, la segunda, tercera, cuarta y quinta carta más alta pueden romper el empate.
+* Si las cinco cartas tienen el mismo valor se usará el palo de la carta más alta para desempatar, usando la ordenación ya comentada: `Clubs < Diamonds < Hearts < Spades`
 
+### Interfaz gráfica del programa
 En toda la lógica expuesta anteriormente para la representación de elementos del juego del poker se ha omitido
 la representación gráfica de los diferentes elementos.
 Ha de añadir la lógica correspondiente para mostrar gráficamente en el navegador esos elementos: cartas,
